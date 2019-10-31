@@ -569,7 +569,7 @@ func! s:XxdConv()
     %!mc vim:xxd
   else
     call s:XxdFind()
-    exe '%!"' . g:xxdprogram . '"'
+    exe '%!' . g:xxdprogram
   endif
   if getline(1) =~ "^0000000:"		" only if it worked
     set ft=xxd
@@ -583,7 +583,7 @@ func! s:XxdBack()
     %!mc vim:xxd -r
   else
     call s:XxdFind()
-    exe '%!"' . g:xxdprogram . '" -r'
+    exe '%!' . g:xxdprogram . ' -r'
   endif
   set ft=
   doautocmd filetypedetect BufReadPost
